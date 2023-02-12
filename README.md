@@ -619,3 +619,101 @@ Array.from(arrayLike[, mapFn[, thisArg]])
      
 
 Array.from() имеет необязательный параметр mapFn, который позволяет вам выполнять функцию map для каждого элемента создаваемого массива (или его подкласса). Проще говоря, вызов Array.from(obj, mapFn, thisArg) эквивалентен цепочке Array.from(obj).map(mapFn, thisArg), за исключением того, что он не создаёт промежуточного массива. Это особенно важно для некоторых подклассов массива, вроде типизированных массивов, поскольку промежуточный массив неизбежно приведёт к усечению значений, чтобы они подпали под подходящий тип.
+
+
+### 16 Array.prototype.includes()
+
+
+Метод includes() определяет, содержит ли массив определённый элемент, возвращая в зависимости от этого true или false.
+
+Синтаксис
+```js
+arr.includes(searchElement[fromIndex = 0])
+```
+
+exampls
+```js
+const array1 = [1, 2, 3];
+
+console.log(array1.includes(2));
+// Expected output: true
+
+const pets = ['cat', 'dog', 'bat'];
+
+console.log(pets.includes('cat'));
+// Expected output: true
+
+console.log(pets.includes('at'));
+// Expected output: false
+```
+
+
+### 17 Array.prototype.indexOf()
+
+
+Метод indexOf() возвращает первый индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет.
+Индекс, с которого начинать поиск. Если индекс больше или равен длине массива, возвращается -1, что означает, что массив даже не просматривается. Если индекс является отрицательным числом, он трактуется как смещение с конца массива. Обратите внимание: если индекс отрицателен, массив всё равно просматривается от начала к концу. Если рассчитанный индекс оказывается меньше 0, поиск ведётся по всему массиву. Значение по умолчанию равно 0, что означает, что просматривается весь массив.
+
+```js
+let arr = [1, 2, 3, 4];
+
+console.log(arr.indexOf(3)); // 2
+console.log(arr.indexOf(5)); // -1
+```
+
+
+### 18 Array.isArray()
+
+Метод Array.isArray() возвращает true, если объект является массивом и false, если он массивом не является.
+exampls 
+```js
+// Все следующие вызовы вернут true
+Array.isArray([]);
+Array.isArray([1]);
+Array.isArray(new Array());
+// Малоизвестный факт: Array.prototype сам является массивом:
+Array.isArray(Array.prototype);
+
+// Все следующие вызовы вернут false
+Array.isArray();
+Array.isArray({});
+Array.isArray(null);
+Array.isArray(undefined);
+Array.isArray(17);
+```
+
+
+### 19 Array.prototype.join()
+
+Метод join() объединяет все элементы массива (или массивоподобного объекта) в строку.
+Определяет строку, разделяющую элементы массива. В случае необходимости тип разделителя приводится к типу Строка. Если он не задан, элементы массива разделяются запятой ','. Если разделитель - пустая строка, элементы массива ничем не разделяются в возвращаемой строке.
+exampls
+```js
+const elements = ['Fire', 'Air', 'Water'];
+
+console.log(elements.join());
+// Expected output: "Fire,Air,Water"
+
+console.log(elements.join(''));
+// Expected output: "FireAirWater"
+
+console.log(elements.join('-'));
+// Expected output: "Fire-Air-Water"
+```
+
+### 20 Array.prototype.keys()
+
+Метод keys() возвращает новый итератор массива Array Iterator, содержащий ключи каждого индекса в массиве.
+
+```js
+const array1 = ['a', 'b', 'c'];
+const iterator = array1.keys();
+
+for (const key of iterator) {
+  console.log(key);
+}
+
+// Expected output: 0
+// Expected output: 1
+// Expected output: 2
+```
