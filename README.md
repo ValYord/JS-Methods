@@ -717,3 +717,214 @@ for (const key of iterator) {
 // Expected output: 1
 // Expected output: 2
 ```
+### 21 Array.prototype.lastIndexOf()
+
+Метод lastIndexOf() возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет. Массив просматривается от конца к началу, начиная с индекса fromIndex.
+
+Синтаксис
+``js
+arr.lastIndexOf(searchElement[, fromIndex = arr.length])
+
+let array = [2, 5, 9, 2];
+array.lastIndexOf(2);     // 3
+array.lastIndexOf(7);     // -1
+array.lastIndexOf(2, 3);  // 3
+array.lastIndexOf(2, 2);  // 0
+array.lastIndexOf(2, -2); // 0
+array.lastIndexOf(2, -1); // 3
+
+
+```
+### 23 Array.prototype.map()
+
+Метод map() создаёт новый массив с результатом вызова указанной функции для каждого элемента массива.
+Описание
+
+Метод map вызывает переданную функцию callback один раз для каждого элемента, в порядке их появления и конструирует новый массив из результатов её вызова. Функция callback вызывается только для индексов массива, имеющих присвоенные значения, включая undefined. Она не вызывается для пропущенных элементов массива (то есть для индексов, которые никогда не были заданы, которые были удалены или которым никогда не было присвоено значение.
+
+Функция callback вызывается с тремя аргументами: значением элемента, индексом элемента и массивом, по которому осуществляется проход.
+```js
+Syntax
+
+// Arrow function
+map((element) => { /* … */ })
+map((element, index) => { /* … */ })
+map((element, index, array) => { /* … */ })
+
+// Callback function
+map(callbackFn)
+map(callbackFn, thisArg)
+```
+
+Examples
+```js
+const numbers = [1, 4, 9];
+const roots = numbers.map((num) => Math.sqrt(num));
+
+// roots is now     [1, 2, 3]
+// numbers is still [1, 4, 9]
+```
+### 24 Array.of()
+
+Метод Array.of() создаёт новый экземпляр массива Array из произвольного числа аргументов, вне зависимости от числа или типа аргумента.
+
+Разница между Array.of() и конструктором Array заключается в обработке целочисленных аргументов: Array.of(7) создаёт массив с одним элементом 7, а Array(7) создаёт пустой массив со значением свойства length равным 7 (Замечание: подразумевается 7 пустых слотов, а не слоты со значением undefined).
+
+```js
+Array.of(7);       // [7]
+Array.of(1, 2, 3); // [1, 2, 3]
+
+Array(7);          // массив с 7 пустыми слотами
+Array(1, 2, 3);    // [1, 2, 3]
+```
+
+### 25 Array.prototype.pop()
+
+
+Метод pop() удаляет последний элемент из массива и возвращает его значение.
+
+Синтаксис
+
+arr.pop()
+exampls
+```js
+const myFish = ["angel", "clown", "mandarin", "sturgeon"];
+const popped = myFish.pop();
+console.log(myFish); // ['angel', 'clown', 'mandarin' ]
+console.log(popped); // 'sturgeon'
+```
+### 26 Array.prototype.push()
+
+Метод push() добавляет один или более элементов в конец массива и возвращает новую длину массива.
+Синтаксис
+
+arr.push(element1, ..., elementN)
+
+exampls
+```js
+let sports = ['футбол', 'бейсбол'];
+let total = sports.push('американский футбол', 'плавание');
+
+console.log(sports); // ['футбол', 'бейсбол', 'американский футбол', 'плавание']
+console.log(total);  // 4
+```
+### 27Array.prototype.reduce()
+
+Метод reduce() применяет функцию reducer к каждому элементу массива (слева-направо), возвращая одно результирующее значение.
+
+### 28Array.prototype.reduceRight()
+
+Метод reduceRight() применяет функцию к аккумулятору и каждому значению массива (справа-налево), сводя его к одному значению.
+
+### 29 Array.prototype.reverse()
+
+Метод reverse() на месте обращает порядок следования элементов массива. Первый элемент массива становится последним, а последний — первым.
+```js
+const array1 = ['one', 'two', 'three'];
+console.log('array1:', array1);
+// Expected output: "array1:" Array ["one", "two", "three"]
+```
+
+### 30 Array.prototype.shift()
+
+
+Метод shift() удаляет первый элемент из массива и возвращает его значение. Этот метод изменяет длину массива.
+
+### 31 Array.prototype.slice()
+
+Метод slice() возвращает новый массив, содержащий копию части исходного массива.
+exampls
+```js
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// Expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// Expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// Expected output: Array ["bison", "camel", "duck", "elephant"]
+```
+
+### 32 Array.prototype.some()
+
+Метод some() проверяет, удовлетворяет ли какой-либо элемент массива условию, заданному в передаваемой функции.
+
+example
+```js
+const array = [1, 2, 3, 4, 5];
+
+// Checks whether an element is even
+const even = (element) => element % 2 === 0;
+
+console.log(array.some(even));
+// Expected output: true
+```
+### 33 Array.prototype.sort()
+
+Метод sort() на месте сортирует элементы массива и возвращает отсортированный массив. Сортировка не обязательно устойчива (англ.). Порядок сортировки по умолчанию соответствует порядку кодовых точек Unicode.
+
+examples
+```js
+const stringArray = ["Blue", "Humpback", "Beluga"];
+const numberArray = [40, 1, 5, 200];
+
+function compareNumbers(a, b) {
+  return a - b;
+}
+
+stringArray.join(); // 'Blue,Humpback,Beluga'
+stringArray.sort(); // ['Beluga', 'Blue', 'Humpback']
+
+numberArray.join(); // '40,1,5,200'
+numberArray.sort(); // [1, 200, 40, 5]
+numberArray.sort(compareNumbers); // [1, 5, 40, 200]
+```
+### 34 Array.prototype.splice()
+
+Метод splice() изменяет содержимое массива, удаляя существующие элементы и/или добавляя новые.
+
+exampls
+```js
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// Inserts at index 1
+console.log(months);
+// Expected output: Array ["Jan", "Feb", "March", "April", "June"]
+
+months.splice(4, 1, 'May');
+// Replaces 1 element at index 4
+console.log(months);
+// Expected output: Array ["Jan", "Feb", "March", "April", "May"]
+```
+### 35 Array.prototype.toLocaleString()
+Сводка
+
+Метод toLocaleString() возвращает строковое представление элементов массива. Элементы преобразуются в строки с использованием своих собственных методов toLocaleString и эти строки разделяются локале-зависимой строкой (например, запятой «,»).
+
+### 36 Array.prototype.toString()
+Сводка
+
+Метод toString() возвращает строковое представление указанного массива и его элементов.
+
+examples
+```js
+const array1 = [1, 2, 'a', '1a'];
+
+console.log(array1.toString());
+// Expected output: "1,2,a,1a"
+```
+### 37 Array.prototype.unshift()
+Сводка
+
+Метод unshift() добавляет один или более элементов в начало массива и возвращает новую длину массива.
+```js
+const array1 = [1, 2, 3];
+
+console.log(array1.unshift(4, 5));
+// Expected output: 5
+
+console.log(array1);
+// Expected output: Array [4, 5, 1, 2, 3]
+```
